@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <title>PlusTeam - Scale Technology Teams Effectively</title> 
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Themesbrand" />   
+        <link rel="shortcut icon" href="images/favicon.ico">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Rubik:300,400,500" rel="stylesheet">
+
+        <!-- pe-icon-7 Css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/pe-icon-7-stroke.css' %}" />
+
+        <!--Material Icon -->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/materialdesignicons.min.css' %}" />
+
+        <!-- Waves effect Css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/waves.css' %}" />
+
+        <!-- Bootstrap Css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}" />
+
+        <!-- Magnific-popup -->
+        <link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
+
+        <!-- Custom Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'main/css/colors/red.css' %}" id="color-opt">
+
+    </head>
+
+
+    <body data-spy="scroll" data-target="#data-scroll"  data-hijacking="on" data-animation="scaleDown">      
+            
+        <!-- STRAT NAVBAR -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
+            <div class="container">
+                <!-- LOGO -->
+                <a class="navbar-brand logo text-uppercase" href="index.html">
+                    PlusTeam
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav navbar-center" id="mySidenav">
+                        <li class="nav-item active">
+                            <a href="#home" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#features" class="nav-link">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#pricing" class="nav-link">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#team" class="nav-link">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#blog" class="nav-link">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                    <div class="nav-button ml-auto">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <button type="button" class="btn btn-custom navbar-btn btn-rounded waves-effect waves-light">Try it Free</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+         <!-- END NAVBAR -->
+
+
+{% for item in blog %}
+    <img src="{{item.image.url}}" />
+{% endfor %}
+
+        <!--START FOOTER-->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>PlusTeam</h4>
+                        <div class="text-muted margin-t-20">
+                            <ul class="list-unstyled footer-list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>Information</h4>
+                        <div class="text-muted margin-t-20">
+                            <ul class="list-unstyled footer-list">
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Jobs</a></li>
+                                <li><a href="#">Bookmarks</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>Support</h4>
+                        <div class="text-muted margin-t-20">
+                            <ul class="list-unstyled footer-list">
+                                <li><a href="">FAQ</a></li>
+                                <li><a href="">Contact</a></li>
+                                <li><a href="">Disscusion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>Subscribe</h4>
+                        <div class="text-muted margin-t-20">
+                            <p></p>
+                        </div>
+                        <form class="form subscribe">
+                            <input placeholder="Email" class="form-control" required>
+                            <a href="#" class="submit"><i class="pe-7s-paper-plane"></i></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--END FOOTER-->
+
+        <!--START FOOTER ALTER-->
+        <div class="footer-alt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="float-left pull-none ">
+                            <p class="copy-rights text-muted"><script>document.write(new Date().getFullYear())</script> ©PlusTeam</p>
+                        </div>
+                        <div class="float-right pull-none ">
+                            <img src="{% static 'main/images/payment.png' %}" alt="payment-img" height="36" />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--START FOOTER ALTER-->
+
+        <!-- JAVASCRIPTS -->
+        <script src="{% static 'main/js/jquery.min.js' %}"></script>
+        <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'main/js/scrollspy.min.js' %}"></script>
+        <!-- Sticky Header -->
+        <script src="{% static 'main/js/jquery.sticky.js' %}"></script>
+        <!-- Waves Effect js -->
+        <script src="{% static 'main/js/waves.min.js' %}"></script>
+        <!-- Magnific Popup -->
+        <script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
+        <!-- Jquery easing -->                                                      
+        <script src="{% static 'main/js/jquery.easing.min.js' %}"></script>
+        <!-- switcher js -->
+        <script src="{% static 'main/js/switcher.js' %}"></script>
+        <script src="{% static 'main/js/app.js' %}"></script>
+
+      </body>
+</html>

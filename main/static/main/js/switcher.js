@@ -13,16 +13,18 @@ window.console =
 jQuery(document).ready(function ($) {
   $("ul.pattern .color1").click(function () {
     $("#color-opt").attr("href", "css/colors/red.css");
+    console.log("red");
     return false;
   });
 
   $("ul.pattern .color2").click(function () {
-    $("#color-opt").attr("href", "css/colors/green.css");
+    $("#color-opt").attr("href", "static/main/css/colors/green.css");
+    console.log("green");
     return false;
   });
 
   $("ul.pattern .color3").click(function () {
-    $("#color-opt").attr("href", "css/colors/pink.css");
+    $("#color-opt").attr("href", "static/main/css/colors/pink.css");
     return false;
   });
 
@@ -48,6 +50,7 @@ jQuery(document).ready(function ($) {
 
   $("ul.pattern .color8").click(function () {
     $("#color-opt").attr("href", "css/colors/yellow.css");
+    console.log("yellow");
     return false;
   });
 
