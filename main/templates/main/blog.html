@@ -1,0 +1,31 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% block blog %}
+<section class="section bg-light pt-5" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1 class="section-title text-center">Blog</h1>
+                <div class="section-title-border margin-t-20"></div>
+                <p class="section-subtitle text-muted text-center font-secondary padding-t-30">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean class at a euismod mus luctus quam.</p>
+            </div>
+        </div>
+        <div class="row margin-t-30">
+            {% for item in objects %}
+            <div class="col-lg-4">
+                <div class="blog-box margin-t-30 hover-effect">
+                    <img src="{{item.image.url}}" style="width: 400px; height:400px" class="img-fluid" alt="">
+                    <div>
+                        <h5 class="mt-4 text-muted">{{item.text}}</h5>
+                        <h4 class="mt-3"><a href="" class="blog-title">{{item.title}}</a></h4>
+                        <p class="text-muted">{{item.content}}</p>
+                        <div class="mt-3">
+                            <a href="blog/{{item.slug}}" class="read-btn">Read More <i class="mdi mdi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</section>
+{% endblock %}
