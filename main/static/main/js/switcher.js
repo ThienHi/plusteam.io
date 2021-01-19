@@ -29,27 +29,27 @@ jQuery(document).ready(function ($) {
   });
 
   $("ul.pattern .color4").click(function () {
-    $("#color-opt").attr("href", "css/colors/cyan.css");
+    $("#color-opt").attr("href", "static/main/css/colors/cyan.css");
     return false;
   });
 
   $("ul.pattern .color5").click(function () {
-    $("#color-opt").attr("href", "css/colors/purple.css");
+    $("#color-opt").attr("href", "static/main/css/colors/purple.css");
     return false;
   });
 
   $("ul.pattern .color6").click(function () {
-    $("#color-opt").attr("href", "css/colors/blue.css");
+    $("#color-opt").attr("href", "static/main/css/colors/blue.css");
     return false;
   });
 
   $("ul.pattern .color7").click(function () {
-    $("#color-opt").attr("href", "css/colors/orange.css");
+    $("#color-opt").attr("href", "static/main/css/colors/orange.css");
     return false;
   });
 
   $("ul.pattern .color8").click(function () {
-    $("#color-opt").attr("href", "css/colors/yellow.css");
+    $("#color-opt").attr("href", "static/main/css/colors/yellow.css");
     console.log("yellow");
     return false;
   });

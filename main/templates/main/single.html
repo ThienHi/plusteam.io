@@ -86,7 +86,7 @@
 
 
 {% for item in blog %}
-    <img src="{{item.image.url}}" />
+    <div>{{item.content|safe|linebreaks}}</div>
 {% endfor %}
 
         <!--START FOOTER-->
