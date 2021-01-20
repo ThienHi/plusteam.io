@@ -21,7 +21,7 @@ class Blog(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('view_blog_post', None, {'slug': self.slug})
+        return reverse("detail", kwargs={"slug": self.slug})
 
     class Meta:
         db_table = "blog"

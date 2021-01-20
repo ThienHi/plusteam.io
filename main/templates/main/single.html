@@ -4,12 +4,14 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <title>PlusTeam - Scale Technology Teams Effectively</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% for item in blog %}
+            <title>PlusTeam - {{item.title}}</title> 
+        {% endfor %}
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="author" content="Themesbrand" />   
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="{% static 'main/images/favicon.ico' %}">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Rubik:300,400,500" rel="stylesheet">
@@ -33,61 +35,165 @@
         <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}" />
         <link rel="stylesheet" href="{% static 'main/css/colors/red.css' %}" id="color-opt">
 
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Add a gray background color with some padding */
+            body {
+              font-family: Arial;
+              padding: 20px;
+              background: #f1f1f1;
+            }
+
+            .row{
+                margin-bottom:20px;
+            }
+            
+            /* Header/Blog Title */
+            .header {
+                margin-top:75px;
+                padding: 20px;
+                font-size: 40px;
+                text-align: center;
+                background: white;
+            }
+            
+            /* Create two unequal columns that floats next to each other */
+            /* Left column */
+            .leftcolumn {   
+              float: left;
+              width: 100%;
+            }
+            
+            /* Right column */
+            .rightcolumn {
+                display: flex;
+                float: left;
+            }
+            .fakeimg {
+                background-color:white;
+                width: 100%;
+            }
+            .card {
+                margin: 15px;
+                background-color: white;
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            .card1 {
+                width:20%;
+                /* height:82%; */
+                margin-left: 45px;
+                /* background-color: white; */
+                padding: 3px;
+                margin-top: 20px;
+            }
+            
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+
+            h3{
+                margin:10px;
+            }
+            @media screen and (max-width: 800px) {
+              .leftcolumn, .rightcolumn {   
+                width: 100%;
+                padding: 0;
+              }
+            }
+
+            div.scrollmenu {
+                background-color: #333;
+                overflow: auto;
+                white-space: nowrap;
+                /* position: fixed; */
+                display: block;
+                padding:20px;
+                top: 0;
+                z-index: 100000;
+            }
+
+            .text-uppercase{
+                margin: 0 10%;
+            }
+
+            div.scrollmenu a {
+                display: inline-block;
+                color: white;
+                text-align: center;
+                padding: 14px;
+                text-decoration: none;
+
+            }
+            a:hover {
+                background-color: rgb(0, 0, 0);
+                color:rgb(240, 25, 10);
+            }
+            .scrollmenu ul li:hover {
+                background-color: #252525;
+            }
+            .scrollmenu ul li:hover ul{
+                /* display: block; */
+            }
+            </style>
     </head>
 
 
     <body data-spy="scroll" data-target="#data-scroll"  data-hijacking="on" data-animation="scaleDown">      
-            
-        <!-- STRAT NAVBAR -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
-            <div class="container">
-                <!-- LOGO -->
-                <a class="navbar-brand logo text-uppercase" href="index.html">
-                    PlusTeam
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="mdi mdi-menu"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav navbar-center" id="mySidenav">
-                        <li class="nav-item active">
-                            <a href="#home" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#services" class="nav-link">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#features" class="nav-link">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#pricing" class="nav-link">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#team" class="nav-link">Team</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#blog" class="nav-link">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link">Contact</a>
-                        </li>
-                    </ul>
-                    <div class="nav-button ml-auto">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <button type="button" class="btn btn-custom navbar-btn btn-rounded waves-effect waves-light">Try it Free</button>
-                            </li>
-                        </ul>
+        
+        <div class="scrollmenu">
+            <a class="navbar-brand logo text-uppercase" href="/">
+                PlusTeam
+            </a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="mdi mdi-menu"></i>
+            </button> -->
+            <a href="#home">Home</a>
+            <a href="#services">News</a>
+            <a href="#features">Contact</a>
+            <a href="#pricing">About</a>
+            <a href="#team">Support</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Tools</a>  
+          </div>
+
+        {% for item in blog %}
+            <div class="header">
+                <h2>{{item.title}}</h2>
+            </div>
+
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card">
+                        <h2>{{item.text}}</h2>
+                        <h5>{{item.create_at}}</h5>
+                        <div class="fakeimg">{{item.content|safe|linebreaks}}</div>
                     </div>
                 </div>
+        {% endfor %}
+
+            <div><h3>Bài viết liên quan</h3></div>
+
+            <div class="rightcolumn">
+                {% for i in all %}
+                    <div class="card1">
+                        <!-- <h2>Post Blog</h2> -->
+                        <a href="/blog/{{i.slug}}">
+                            <div class="img">
+                                <img style="height:300px; width:100%; " src="{{i.image.url}}" alt="{{i.figcaptions}}">
+                            </div>
+                            <center>{{i.summary}}</center>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
-        </nav>
-         <!-- END NAVBAR -->
-
-
-{% for item in blog %}
-    <div>{{item.content|safe|linebreaks}}</div>
-{% endfor %}
+        </div>
 
         <!--START FOOTER-->
         <footer class="footer">
@@ -147,9 +253,6 @@
                     <div class="col-lg-12">
                         <div class="float-left pull-none ">
                             <p class="copy-rights text-muted"><script>document.write(new Date().getFullYear())</script> ©PlusTeam</p>
-                        </div>
-                        <div class="float-right pull-none ">
-                            <img src="{% static 'main/images/payment.png' %}" alt="payment-img" height="36" />
                         </div>
                         <div class="clearfix"></div>
                     </div>

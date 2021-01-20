@@ -8,7 +8,7 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="author" content="Themesbrand" />   
-        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="shortcut icon" href="{% static 'main/images/favicon.ico' %}">
 
         <!-- Google Font -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Rubik:300,400,500" rel="stylesheet">
@@ -40,8 +40,7 @@
         <!-- STRAT NAVBAR -->
         <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark">
             <div class="container">
-                <!-- LOGO -->
-                <a class="navbar-brand logo text-uppercase" href="index.html">
+                <a class="navbar-brand logo text-uppercase" href="/">
                     PlusTeam
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,16 +70,17 @@
                             <a href="#contact" class="nav-link">Contact</a>
                         </li>
                     </ul>
-                    <div class="nav-button ml-auto">
+                    <!-- <div class="nav-button ml-auto">
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <button type="button" class="btn btn-custom navbar-btn btn-rounded waves-effect waves-light">Try it Free</button>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </nav>
+        
          <!-- END NAVBAR -->
 
 
@@ -94,7 +94,7 @@
                             <div class="col-lg-8 offset-lg-2 text-white text-center">
                                 <h1 class="home-title">Scale Technology Teams Effectively</h1>
                                 <p class="padding-t-15 home-desc">PlusTeam matches and manages top talents in Vietnam, and place them with top companies in the US, Japan, Europe, Singapore.</p>
-                                <p class="play-shadow margin-t-30 margin-l-r-auto"><a href="http://vimeo.com/99025203" class="play-btn video-play-icon"><i class="mdi mdi-play text-center"></i></a></p>  
+                                <!-- <p class="play-shadow margin-t-30 margin-l-r-auto"><a href="http://vimeo.com/99025203" class="play-btn video-play-icon"><i class="mdi mdi-play text-center"></i></a></p>   -->
                             </div>
                         </div>
                     </div>
@@ -600,9 +600,6 @@
                     <div class="col-lg-12">
                         <div class="float-left pull-none ">
                             <p class="copy-rights text-muted"><script>document.write(new Date().getFullYear())</script> ©PlusTeam</p>
-                        </div>
-                        <div class="float-right pull-none ">
-                            <img src="{% static 'main/images/payment.png' %}" alt="payment-img" height="36" />
                         </div>
                         <div class="clearfix"></div>
                     </div>
