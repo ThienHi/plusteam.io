@@ -33,6 +33,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'main',
     'tinymce',
+    # 'sorl.thumbnail',
+    # 'mce_filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,3 +134,9 @@ STATICFILES_DIR = [
 # Manage the image in site
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# TINYMCE_DEFAULT_CONFIG = {
+#     'theme': 'modern',
+#     'relative_urls': False,
+#     'plugins': 'image',
+# }
