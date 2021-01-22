@@ -8,12 +8,16 @@ class Category(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=100, db_index=True)
 
+    def __str__(self):
+        return self.title
+
     def __unicode__(self):
         return self.title
 
-    def count_blog(self):
+    def count_post(self):
         return Blog.objects.filter(category=self).count()
 
+    count_post.allow_tags = True
     class Meta:
         db_table = "blog_category"
         ordering = ['-id']
@@ -21,10 +25,10 @@ class Category(models.Model):
 
 class Blog(models.Model):
     id = models.AutoField(primary_key=True)
+    category = models.ForeignKey(Category, related_name='category',on_delete=models.CASCADE)
     text = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
     content = HTMLField(blank=True, null = True)
-    category = models.ForeignKey(Category,related_name = 'category', on_delete=models.CASCADE,null = True)
     slug = models.SlugField(max_length=100, unique=True)
     image = models.ImageField(upload_to="blog/")
     summary = models.TextField(max_length=500, blank=True, null = True, help_text="mô tả ngắn gọn cho bài viết")
@@ -42,4 +46,5 @@ class Blog(models.Model):
 
     class Meta:
         db_table = "blog"
+        ordering=["-id"]
         

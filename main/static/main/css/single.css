@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+.row {
+  margin-bottom: 20px;
+}
+.header {
+  margin-top: 10px;
+  padding: 20px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+.blog-detail {
+  float: left;
+  width: 75%;
+}
+.article {
+  /* display: flex; */
+  float: left;
+}
+
+.rightcolumn {
+  /* background-color: rgb(184, 188, 190); */
+  width: 24%;
+  margin-top: 20px;
+  height: fit-content;
+}
+
+.category {
+  margin: 20px 0;
+  border: 1px solid black;
+}
+
+.category h4 {
+  margin-left: 50px;
+  padding: 15px;
+  color: #962e0b;
+}
+
+.category h4:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+.hotline {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.hotline h2,
+.category h2 {
+  background-color: #ff4000;
+  padding: 15px;
+  text-align: center;
+}
+
+.hotline img {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+.hotline p {
+  font-size: 16px;
+}
+
+.fakeimg {
+  background-color: white;
+  width: 100%;
+}
+.card {
+  margin: 15px;
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card1 {
+  display: flex;
+  width: 100%;
+  margin-left: 45px;
+  margin-top: 20px;
+}
+
+.card1 a {
+  width: 20%;
+  margin-right: 40px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+h3 {
+  margin: 10px;
+}
+@media screen and (max-width: 800px) {
+  .blog-detail,
+  .article {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  position: sticky;
+  display: block;
+  padding: 20px;
+  top: 0;
+  z-index: 100000;
+}
+
+.text-uppercase {
+  margin: 0 10%;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div .card1 a h5:hover {
+  text-decoration: underline;
+}
+.scrollmenu ul li:hover {
+  background-color: #252525;
+}

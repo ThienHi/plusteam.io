@@ -34,114 +34,8 @@
         <!-- Custom Css -->
         <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}" />
         <link rel="stylesheet" href="{% static 'main/css/colors/red.css' %}" id="color-opt">
+        <link rel="stylesheet" href="{% static 'main/css/single.css' %}" >
 
-        <style>
-            * {
-              box-sizing: border-box;
-            }
-            
-            /* Add a gray background color with some padding */
-            body {
-              font-family: Arial;
-              padding: 20px;
-              background: #f1f1f1;
-            }
-
-            .row{
-                margin-bottom:20px;
-            }
-            
-            /* Header/Blog Title */
-            .header {
-                margin-top:75px;
-                padding: 20px;
-                font-size: 40px;
-                text-align: center;
-                background: white;
-            }
-            
-            /* Create two unequal columns that floats next to each other */
-            /* Left column */
-            .leftcolumn {   
-              float: left;
-              width: 100%;
-            }
-            
-            /* Right column */
-            .rightcolumn {
-                display: flex;
-                float: left;
-            }
-            .fakeimg {
-                background-color:white;
-                width: 100%;
-            }
-            .card {
-                margin: 15px;
-                background-color: white;
-                padding: 20px;
-                margin-top: 20px;
-            }
-
-            .card1 {
-                width:20%;
-                /* height:82%; */
-                margin-left: 45px;
-                /* background-color: white; */
-                padding: 3px;
-                margin-top: 20px;
-            }
-            
-            .row:after {
-              content: "";
-              display: table;
-              clear: both;
-            }
-
-            h3{
-                margin:10px;
-            }
-            @media screen and (max-width: 800px) {
-              .leftcolumn, .rightcolumn {   
-                width: 100%;
-                padding: 0;
-              }
-            }
-
-            div.scrollmenu {
-                background-color: #333;
-                overflow: auto;
-                white-space: nowrap;
-                position: sticky;
-                display: block;
-                padding:20px;
-                top: 0;
-                z-index: 100000;
-            }
-
-            .text-uppercase{
-                margin: 0 10%;
-            }
-
-            div.scrollmenu a {
-                display: inline-block;
-                color: white;
-                text-align: center;
-                padding: 14px;
-                text-decoration: none;
-
-            }
-            a:hover {
-                background-color: rgb(0, 0, 0);
-                color:rgb(240, 25, 10);
-            }
-            .scrollmenu ul li:hover {
-                background-color: #252525;
-            }
-            .scrollmenu ul li:hover ul{
-                /* display: block; */
-            }
-            </style>
     </head>
 
 
@@ -165,34 +59,47 @@
 
         {% for item in blog %}
             <div class="header">
-                <h2>{{item.title}}</h2>
+                <h1>{{item.title}}</h1>
             </div>
 
             <div class="row">
-                <div class="leftcolumn">
+                <div class="blog-detail">
                     <div class="card">
-                        <h2>{{item.text}}</h2>
+                        <h1>{{item.text}}</h1>
                         <h5>{{item.create_at}}</h5>
                         <div class="fakeimg">{{item.content|safe|linebreaks}}</div>
                     </div>
                 </div>
-        {% endfor %}
-
-            <div><h3>Bài viết liên quan</h3></div>
-
-            <div class="rightcolumn">
-                {% for i in all %}
-                    <div class="card1">
-                        <!-- <h2>Post Blog</h2> -->
-                        <a href="/blog/{{i.slug}}">
-                            <div class="img">
-                                <img style="height:300px; width:100%; " src="{{i.image.url}}" alt="{{i.figcaptions}}">
-                            </div>
-                            <center>{{i.summary}}</center>
-                        </a>
-                    </div>
                 {% endfor %}
-            </div>
+                
+                <div class="rightcolumn">
+                    <div class="hotline">
+                        <h2>HOTLINE</h2>
+                        <p><img src="https://img.icons8.com/ios-glyphs/50/000000/phone.png"/> +84931959588</p>
+                        <p><img src="https://img.icons8.com/ios-glyphs/30/000000/faq.png"/> Support@plusteam.io</p>
+                    </div>
+                    <div class="category" >
+                        <h2>Danh mục bài viết</h2>
+                        {% for item in category %}
+                            <a href="/blog/filter/category/{{item.slug}}"><h4><img src="https://img.icons8.com/ios-glyphs/16/000000/right3.png"/> {{item.title}}</h4></a>
+                        {% endfor %}
+                    </div>
+                </div>
+        
+            <div class="article">
+                <div><h3>Bài viết liên quan</h3></div>
+                <div class="card1">
+                    {% for i in all %}
+                            <!-- <h2>Post Blog</h2> -->
+                            <a href="/blog/{{i.slug}}">
+                                <div class="img">
+                                    <img style="height:350px; width:100%; " src="{{i.image.url}}" alt="{{i.figcaptions}}">
+                                </div>
+                                <h5 style="color:black; text-align:center;">{{i.summary}}</h5>
+                            </a>
+                            {% endfor %}
+                        </div>
+                </div>
         </div>
 
         <!--START FOOTER-->
