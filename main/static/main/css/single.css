@@ -38,7 +38,7 @@ body {
 }
 
 .category h4 {
-  margin-left: 50px;
+  margin-left: 12%;
   padding: 15px;
   color: #962e0b;
 }
@@ -103,7 +103,8 @@ h3 {
 }
 @media screen and (max-width: 800px) {
   .blog-detail,
-  .article {
+  .article,
+  .rightcolumn {
     width: 100%;
     padding: 0;
   }
