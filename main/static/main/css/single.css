@@ -32,9 +32,17 @@ body {
   height: fit-content;
 }
 
+#categorys {
+  display: flex;
+}
 .category {
+  display: flex;
   margin: 20px 0;
   border: 1px solid black;
+}
+
+.cate {
+  display: flex !important;
 }
 
 .category h4 {
