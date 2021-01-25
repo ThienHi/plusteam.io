@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire</title>
+    <title>Hires</title>
 </head>
 <body>
     <div class="pagination">
         <span class="step-links">
             <span class="current">
-                {% for i in page %}
-                <form action="{% url 'hires' i.id %}" method="post">
-                    {% csrf_token %}
-                        <h1>{{i.question}}</h1>
-                        {% for item in i.choice_set.all %}
+                {% if q %}
+                    <h1>{{q.question}}</h1>
+                    <form action="{% url 'hires' q.id %}" method="post">
+                        {% csrf_token %} 
+                        {% for item in q.choice_set.all %}
                             <input type="radio" id="{{item.choice}}" value="{{item.id}}" name="choice">{{item.choice}}</input>
                             <br>
 
                         {% endfor %}
+                        <input type="submit"/>
+                        {% if page.has_previous %}
+                            <input type="submit" value="backs" />
+                            <!-- <a href="?page={{ page.previous_page_number }}">previous</a> -->
+                        {% endif %}
+
                         {% if page.has_next %}
                             <!-- <a href="?page={{ page.next_page_number }}">next</a> -->
                             <input type="submit" value="next" />
                         {% endif %}
                     </form>
-                {% endfor %}
+                    {% endif %}
+
             </span>
         </span>
     </div>
