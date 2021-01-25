@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire</title>
+</head>
+<body>
+    <div class="pagination">
+        <span class="step-links">
+            <span class="current">
+                {% for i in page %}
+                <form action="{% url 'vote' i.id %}" method="post">
+                    {% csrf_token %} 
+                        <h1>{{i.question}}</h1>
+                        {% for item in i.choice_set.all %}
+                            <input type="radio" id="{{item.choice}}" value="{{item.id}}" name="choice">{{item.choice}}</input>
+                            <!-- <label>{{item.choice}}</label> -->
+                            <br>
+
+                        {% endfor %}
+                        <input type="submit" />
+                    </form>
+                    {% endfor %}
+                
+                {% if page.has_previous %}
+                    <!-- <a href="?page=1">&laquo; first</a> -->
+                    <a href="?page={{ page.previous_page_number }}">previous</a>
+                {% endif %}
+
+                {% if page.has_next %}
+                    <a href="?page={{ page.next_page_number }}">next</a>
+                    <!-- <a href="?page={{ page.paginator.num_pages }}">last &raquo;</a> -->
+                {% endif %}
+            </span>
+        </span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% if vote %}
+    <h1>{{vote.questions}}</h1>
+    <p>Vote</p>
+    {% for item in vote.choice_set.all %}
+        <p>{{item.choice_text}} : {{item.vote}}</p>
+    {% endfor %}
+{% endif %}
+<button><a href="{% url 'hire' %}">Back Home</a></button>

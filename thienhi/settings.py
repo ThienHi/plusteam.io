@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'hire',
     'main',
     'tinymce',
     # 'sorl.thumbnail',
@@ -135,8 +136,7 @@ STATICFILES_DIR = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-# TINYMCE_DEFAULT_CONFIG = {
-#     'theme': 'modern',
-#     'relative_urls': False,
-#     'plugins': 'image',
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 1
+}
