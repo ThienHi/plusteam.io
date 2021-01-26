@@ -1,16 +1,154 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category</title>
-</head>
-<body>
-    <h2>Category</h2>
-    <div>
-        {% for items in item %}
-            <p>{{items.title}}</p>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% for item in blog %}
+            <title>PlusTeam - {{item.title}}</title> 
         {% endfor %}
-    </div>
-</body>
-</html>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="Themesbrand" />   
+        <link rel="shortcut icon" href="{% static 'main/images/favicon.ico' %}">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Rubik:300,400,500" rel="stylesheet">
+
+        <!-- pe-icon-7 Css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/pe-icon-7-stroke.css' %}" />
+
+        <!--Material Icon -->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/materialdesignicons.min.css' %}" />
+
+        <!-- Waves effect Css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/waves.css' %}" />
+
+        <!-- Bootstrap Css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}" />
+
+        <!-- Magnific-popup -->
+        <link rel="stylesheet" href="{% static 'main/css/magnific-popup.css' %}">
+
+        <!-- Custom Css -->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'main/css/colors/red.css' %}" id="color-opt">
+        <link rel="stylesheet" href="{% static 'main/css/single.css' %}" >
+
+    </head>
+
+
+    <body data-spy="scroll" data-target="#data-scroll"  data-hijacking="on" data-animation="scaleDown">      
+        
+        <div class="scrollmenu">
+            <a class="navbar-brand logo text-uppercase" href="/">
+                PlusTeam
+            </a>
+            <a href="#home">Home</a>
+            <a href="#services">News</a>
+            <a href="#features">Contact</a>
+            <a href="#pricing">About</a>
+            <a href="#team">Support</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Tools</a>  
+          </div>
+
+          <div class="category-list" style="display:flex;">
+              {% for item in item %}
+              <div class="col-lg-4">
+                  <div class="blog-box margin-t-30 hover-effect">
+                        <img src="{{item.image.url}}" style="width: 400px; height:400px" class="img-fluid" alt="">
+                        <div>
+                            <h5 class="mt-4 text-muted">{{item.text}}</h5>
+                            <h4 class="mt-3"><a href="" class="blog-title">{{item.title}}</a></h4>
+                            <p class="text-muted">{{item.summary}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        <!--START FOOTER-->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>PlusTeam</h4>
+                        <div class="text-muted margin-t-20">
+                            <ul class="list-unstyled footer-list">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>Information</h4>
+                        <div class="text-muted margin-t-20">
+                            <ul class="list-unstyled footer-list">
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Jobs</a></li>
+                                <li><a href="#">Bookmarks</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>Support</h4>
+                        <div class="text-muted margin-t-20">
+                            <ul class="list-unstyled footer-list">
+                                <li><a href="">FAQ</a></li>
+                                <li><a href="">Contact</a></li>
+                                <li><a href="">Disscusion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 margin-t-20">
+                        <h4>Subscribe</h4>
+                        <div class="text-muted margin-t-20">
+                            <p></p>
+                        </div>
+                        <form class="form subscribe">
+                            <input placeholder="Email" class="form-control" required>
+                            <a href="#" class="submit"><i class="pe-7s-paper-plane"></i></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--END FOOTER-->
+
+        <!--START FOOTER ALTER-->
+        <div class="footer-alt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="float-left pull-none ">
+                            <p class="copy-rights text-muted"><script>document.write(new Date().getFullYear())</script> ©PlusTeam</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--START FOOTER ALTER-->
+
+        <!-- JAVASCRIPTS -->
+        <script src="{% static 'main/js/jquery.min.js' %}"></script>
+        <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'main/js/scrollspy.min.js' %}"></script>
+        <!-- Sticky Header -->
+        <script src="{% static 'main/js/jquery.sticky.js' %}"></script>
+        <!-- Waves Effect js -->
+        <script src="{% static 'main/js/waves.min.js' %}"></script>
+        <!-- Magnific Popup -->
+        <script src="{% static 'main/js/jquery.magnific-popup.min.js' %}"></script>
+        <!-- Jquery easing -->                                                      
+        <script src="{% static 'main/js/jquery.easing.min.js' %}"></script>
+        <!-- switcher js -->
+        <script src="{% static 'main/js/switcher.js' %}"></script>
+        <script src="{% static 'main/js/app.js' %}"></script>
+
+      </body>
