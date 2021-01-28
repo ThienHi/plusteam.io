@@ -1,0 +1,32 @@
+body {
+  font-family: Arial;
+  /* padding: 20px; */
+  background: white;
+}
+
+.container {
+  display: flex;
+}
+
+.pagination {
+  margin-left: 10%;
+  width: 60%;
+}
+
+.trust-by {
+  text-align: center;
+  color: white;
+  background-color: #212529;
+  width: 40%;
+}
+
+.trust-by h1 {
+  margin: 7% 0;
+  font-size: 24px;
+  font-weight: 200;
+}
+.col5 img {
+  margin: 6% 6%;
+  width: 25%;
+  height: 25%;
+}

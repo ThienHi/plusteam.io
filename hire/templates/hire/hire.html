@@ -1,39 +1,50 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'hires/hire.css' %}" >
+    <!-- <title>Hire</title> -->
 </head>
 <body>
-    <div class="pagination">
-        <span class="step-links">
-            <span class="current">
-                {% for i in page %}
-                <form action="{% url 'vote' i.id %}" method="post">
-                    {% csrf_token %} 
-                        <h1>{{i.question}}</h1>
-                        {% for item in i.choice_set.all %}
-                            <input type="radio" id="{{item.choice}}" value="{{item.id}}" name="choice">{{item.choice}}</input>
-                            <!-- <label>{{item.choice}}</label> -->
-                            <br>
-
+    <div class="container">
+        <div class="pagination">
+            <span class="step-links">
+                <span class="current">
+                    {% for i in page %}
+                            <form action="?page={{ page.number }}" method="post">
+                                {% csrf_token %} 
+                                <h1>{{i.question}}</h1>
+                                {% for item in i.choice_set.all %}
+                                    <input type="radio" id="{{item.choice}}" value="{{item.id}}" name="choice">{{item.choice}}</input>
+                                    <br>
+    
+                                {% endfor %}
+                                {% if page_number.has_previous %}          
+                                    <a href="?page={{ page_number.previous_page_number }}"><input type="button" value="previous" /></a>
+                                {% endif %}
+                                <input type="submit" value="next"/>
+                            </form>
+                            
                         {% endfor %}
-                        <input type="submit" />
-                    </form>
-                    {% endfor %}
-                
-                {% if page.has_previous %}
-                    <!-- <a href="?page=1">&laquo; first</a> -->
-                    <a href="?page={{ page.previous_page_number }}">previous</a>
-                {% endif %}
-
-                {% if page.has_next %}
-                    <a href="?page={{ page.next_page_number }}">next</a>
-                    <!-- <a href="?page={{ page.paginator.num_pages }}">last &raquo;</a> -->
-                {% endif %}
+                </span>
             </span>
-        </span>
+        </div>
+    
+        <div class="trust-by">
+            <h1>TRUSTED BY</h1>
+            <div class="col5">
+                <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.0-9/87054882_2964591643574654_7192964679038140416_o.jpg?_nc_cat=103&ccb=2&_nc_sid=09cbfe&_nc_ohc=jKaXCbfg0FwAX8SBMSP&_nc_ht=scontent.fsgn2-2.fna&oh=772d939d046d721216b48ccae5a0189a&oe=603469A3" />
+                <img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.0-9/54799038_324023785136702_3023332517374590976_n.png?_nc_cat=103&ccb=2&_nc_sid=09cbfe&_nc_ohc=qKoVw2gbwBwAX_e-DmK&_nc_ht=scontent.fsgn2-2.fna&oh=11a32e813d4bf9e49f271d2ddd16ecab&oe=603607C1" />
+            </div>
+            <div class="col5">
+                <img src="https://scontent.fsgn2-3.fna.fbcdn.net/v/t1.0-9/50458276_2013705098725908_8108291101091168256_n.png?_nc_cat=108&ccb=2&_nc_sid=09cbfe&_nc_ohc=2vrfglamgK4AX_oxdD6&_nc_ht=scontent.fsgn2-3.fna&oh=71909ce5024e30faadc05dfde3854089&oe=60342589" />
+                <img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t31.0-8/29664831_1772798486110288_4408068860181221164_o.jpg?_nc_cat=105&ccb=2&_nc_sid=09cbfe&_nc_ohc=sZgSNBMNtDgAX99O1hu&_nc_ht=scontent.fsgn2-1.fna&oh=8c574a7598da07e3c4cd2187349f2c9b&oe=6036E103" />
+            </div>
+        </div>
     </div>
 
 </body>
