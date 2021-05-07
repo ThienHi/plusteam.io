@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_results',
     'import_export',
+    'celery',
 ]
 
 CELERY_RESULT_BACKEND = 'django-db'
@@ -156,9 +157,11 @@ REST_FRAMEWORK = {
 }
 
 IMPORT_EXPORT_USE_TRANSACTION = True
-CELERY_ENABLED = True
-
-CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672/'
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
