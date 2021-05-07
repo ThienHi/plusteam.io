@@ -41,10 +41,22 @@ class Blog(models.Model):
     def __unicode__(self):
         return self.title
 
-    def get_absolute_url(self):
-        return reverse("detail", kwargs={"slug": self.slug})
+    # def get_absolute_url(self):
+    #     return reverse("detail", kwargs={"slug": self.slug})
 
     class Meta:
         db_table = "blog"
         ordering=["-id"]
         
+
+class Email(models.Model):
+    name = models.CharField(max_length=255, null=True)
+    subject = models.CharField(max_length=255,null=True)
+    email = models.EmailField(max_length=255,null=True)
+    content = models.TextField(null=True)
+
+    def __str__(self):
+        return self.email
+    class Meta:
+        ordering = ['-id']
+        db_table = 'emails'

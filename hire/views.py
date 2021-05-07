@@ -3,17 +3,19 @@ from .models import Question, Choice
 # from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
 from django.http import HttpResponse
+from .tasks import add
 
 
 def hire(request):
+    add.delay(5,3)
+    print("=====================================================")
+    print(add(3,5))
+    print("=====================================================")
     ques = Question.objects.all()
     paginator = Paginator(ques, 1)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-
-    # print("======================================================================")
-    # print(page_obj)
 
     context = {
         'q':ques,

@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>SendEmail</title>
+</head>
+
+<body>
+
+    <form method="post" action="">
+    {% csrf_token %}
+        <p>Send</p>
+        <input type="text" name="email" >
+        <br>
+        <p>content</p>
+        <input type="text" name="content" id="content">
+        <br>
+        <input type="submit" name="submit" id="submit" value="submit" />
+    </form>
+
+</body>
+</html>
