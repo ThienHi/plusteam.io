@@ -13,7 +13,7 @@ def hire(request):
     print("=====================================================")
     ques = Question.objects.all()
     paginator = Paginator(ques, 1)
-
+    
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -22,6 +22,20 @@ def hire(request):
         'page':page_obj
     }
     return render(request,'hire/hire.html',context)
+
+
+def hires(request,id):
+    q = Question.objects.get(id=id)
+    try:
+        data = request.POST['choice']
+        c = q.choice_set.get(pk=data)
+        c.vote = c.vote + 1
+        c.save()
+        q.id = q.id +1
+    except:
+        HttpResponse("Error exits data")
+    
+    return render(request,"hire/hires.html",{'q':q})
 
 
 def vote(request, question_id):
