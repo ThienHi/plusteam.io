@@ -3,13 +3,13 @@ from .models import Question, Choice
 # from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
 from django.http import HttpResponse
-from .tasks import add
+# from .tasks import add
 
 
 def hire(request):
-    add.delay(5,3)
+    # add.delay(5,3)
     print("=====================================================")
-    print(add(3,5))
+    print(sum(3,5))
     print("=====================================================")
     ques = Question.objects.all()
     paginator = Paginator(ques, 1)
