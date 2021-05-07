@@ -18,7 +18,12 @@ admin.site.register(Choice,ChoiceAdmin)
 
 # @admin.register(AccessibleChoice)
 class AccessibleChoiceAdmin(ImportExportModelAdmin):
-    list_display = ('id','access', 'user', 'email', 'status')
+    list_display = ['id','access', 'user', 'email', 'status']
+    search_fields = ['access']
+    list_filter = (
+        ('access'),
+    )
+    list_select_related = ('user',)
     class Meta:
         model = AccessibleChoice
         fields = ('access', 'user')
