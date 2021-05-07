@@ -9,7 +9,7 @@ from django.http import HttpResponse
 def hire(request):
     # add.delay(5,3)
     print("=====================================================")
-    print(sum(3,5))
+    print("1000000")
     print("=====================================================")
     ques = Question.objects.all()
     paginator = Paginator(ques, 1)
